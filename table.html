@@ -1,16 +1,14 @@
 <!DOCTYPE html>
 <html lang="ru">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Таблица обед</title>
     <link rel="stylesheet" href="table.css">
 </head>
-
 <body>
     <div class="header">
-        <a href="4laba.html">Основная страница</a>
+        <a href="5laba.html">Основная страница</a>
         <a href="page2.html">Позиционирование элементов</a>
         <a href="table.html">Таблица</a>
     </div>
@@ -70,7 +68,37 @@
             </tr>
         </tbody>
     </table>
+    <form id="add-row-form" style="margin-top: 20px;">
+        <h2>Добавить новое место</h2>
+        <label for="number">Номер:</label>
+        <input type="number" id="number" name="number" required><br>
+        <label for="name">Название:</label>
+        <input type="text" id="name" name="name" required><br>
+        <label for="quality">Качество:</label>
+        <input type="text" id="quality" name="quality" required><br>
+        <label for="price">Цена:</label>
+        <input type="text" id="price" name="price" required><br>
+        <label for="distance">Расстояние от универа:</label>
+        <input type="text" id="distance" name="distance" required><br>
+        <label for="rating">Общая оценка:</label>
+        <input type="text" id="rating" name="rating" required><br>
+        <button type="button" onclick="addRow()">Добавить</button>
+    </form>
 
+    <script>
+        function addRow() {
+            const number = document.getElementById('number').value;
+            const name = document.getElementById('name').value;
+            const quality = document.getElementById('quality').value;
+            const price = document.getElementById('price').value;
+            const distance = document.getElementById('distance').value;
+            const rating = document.getElementById('rating').value;
+            const table = document.querySelector('table tbody');
+            const newRow = document.createElement('tr');
+            newRow.innerHTML = `<td>${number}</td><td>${name}</td><td>${quality}</td><td>${price}</td><td>${distance}</td><td>${rating}</td>`;
+            table.appendChild(newRow);
+            document.getElementById('add-row-form').reset();
+        }
+    </script>
 </body>
-
 </html>
